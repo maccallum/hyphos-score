@@ -1,0 +1,779 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     31471,        770]
+NotebookOptionsPosition[     30459,        731]
+NotebookOutlinePosition[     30836,        748]
+CellTagsIndexPosition[     30793,        745]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"starttime", "=", "60.0"}], ";", 
+  RowBox[{"endtime", "=", "240.0"}], ";", 
+  RowBox[{"startPitchFl", "=", "60.5"}], ";", 
+  RowBox[{"startPitchBcl", "=", "48."}], ";", 
+  RowBox[{"startPitchVla", "=", "60.86313713864835"}], ";", 
+  RowBox[{"endPitchFl", "=", "67."}], ";", 
+  RowBox[{"endPitchBcl", "=", "66."}], ";", 
+  RowBox[{"endPitchVla", "=", "66.68825906469125"}]}]], "Input",
+ CellChangeTimes->{{3.6036539971625977`*^9, 3.603654035568112*^9}, {
+   3.60365450979733*^9, 3.60365451242813*^9}, {3.6036627342408247`*^9, 
+   3.6036628199090548`*^9}, 3.603666092497943*^9, {3.603666141328045*^9, 
+   3.603666141503229*^9}, {3.603666194375195*^9, 3.603666207718927*^9}, {
+   3.603666353012678*^9, 3.603666353675899*^9}, {3.603666414907813*^9, 
+   3.603666415978984*^9}, 3.603666467362178*^9, {3.603667276797988*^9, 
+   3.60366727751022*^9}, {3.6036675594097958`*^9, 3.603667601416291*^9}, {
+   3.60380741958556*^9, 3.603807419673194*^9}, {3.603807474984264*^9, 
+   3.603807506173112*^9}}],
+
+Cell[BoxData["66.68825906469125`"], "Output",
+ CellChangeTimes->{
+  3.603654036649248*^9, 3.6036545128993177`*^9, 3.60366293195853*^9, 
+   3.6036660942062817`*^9, 3.603666142198838*^9, {3.603666196238967*^9, 
+   3.603666208841791*^9}, 3.60366635409587*^9, 3.6036664181379557`*^9, 
+   3.603666468061181*^9, 3.603667278508499*^9, {3.6036675630186462`*^9, 
+   3.603667603207775*^9}, 3.6038074209813747`*^9, {3.603807478653809*^9, 
+   3.603807507741868*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fl", "[", 
+   RowBox[{"x_", ",", "startpitch_", ",", "endpitch_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Sin", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Pi", "/", "2.0"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"endtime", "-", "starttime"}], ")"}]}], "*", 
+      RowBox[{"(", 
+       RowBox[{"x", "-", "starttime"}], ")"}]}], "]"}], "*", 
+    RowBox[{"(", 
+     RowBox[{"endpitch", "-", "startpitch"}], ")"}]}], "+", 
+   "startpitch"}]}]], "Input",
+ CellChangeTimes->{{3.603653931966566*^9, 3.6036539933491917`*^9}, {
+   3.6036540545643187`*^9, 3.603654070922225*^9}, {3.603654218698123*^9, 
+   3.603654224393374*^9}, {3.603654474502715*^9, 3.6036544863404627`*^9}, 
+   3.603654744184823*^9, {3.603654790441142*^9, 3.603654805041154*^9}, 
+   3.603654896439084*^9, {3.6036552872331877`*^9, 3.6036552878316936`*^9}, {
+   3.603662633816978*^9, 3.60366264236005*^9}, {3.603662936668275*^9, 
+   3.6036629508141403`*^9}, {3.603666238398621*^9, 3.6036662490344353`*^9}, {
+   3.603666312501593*^9, 3.603666339174491*^9}, {3.6036664061243057`*^9, 
+   3.603666410090806*^9}, {3.603666447947558*^9, 3.6036664625952673`*^9}, {
+   3.6036672666385612`*^9, 3.603667273021356*^9}, {3.603807777653474*^9, 
+   3.603807801763109*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bcl", "[", 
+   RowBox[{"x_", ",", "startpitch_", ",", "endpitch_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x", " ", "-", " ", "starttime"}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"endtime", "-", "starttime"}], ")"}]}], ")"}], ")"}], "*", 
+    RowBox[{"(", 
+     RowBox[{"endpitch", "-", "startpitch"}], ")"}]}], "+", 
+   "startpitch"}]}]], "Input",
+ CellChangeTimes->{{3.6036552934741583`*^9, 3.603655328825583*^9}, {
+  3.6036626459207783`*^9, 3.603662646990066*^9}, {3.603662955027733*^9, 
+  3.603662975131013*^9}, {3.603667335349111*^9, 3.603667362734283*^9}, {
+  3.603808119822701*^9, 3.603808133167376*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vla", "[", 
+   RowBox[{"x_", ",", "startpitch_", ",", "endpitch_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", "-", "starttime"}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Pi", "/", "2.0"}], ")"}], "/", 
+           RowBox[{"(", 
+            RowBox[{"endtime", "-", "starttime"}], ")"}]}], ")"}]}], "+", 
+        "Pi"}], "]"}], "+", "1"}], ")"}], "*", 
+    RowBox[{"(", 
+     RowBox[{"endpitch", "-", "startpitch"}], ")"}]}], "+", 
+   "startpitch"}]}]], "Input",
+ CellChangeTimes->{{3.603655347966011*^9, 3.603655425697991*^9}, {
+  3.603655465782916*^9, 3.603655468132866*^9}, {3.60365552657236*^9, 
+  3.603655530676239*^9}, {3.603655594154283*^9, 3.603655596578848*^9}, {
+  3.603655696346303*^9, 3.603655940694433*^9}, {3.603662649418816*^9, 
+  3.603662650488318*^9}, {3.603662981373168*^9, 3.6036629905012417`*^9}, {
+  3.603667398790243*^9, 3.603667407614232*^9}, {3.6036674397964163`*^9, 
+  3.603667443836837*^9}, {3.6036679518530703`*^9, 3.6036679610113564`*^9}, {
+  3.6036680089007607`*^9, 3.603668009946518*^9}, {3.603808120974516*^9, 
+  3.603808145371649*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{
+   "func_", ",", "x_", ",", "a_", ",", "b_", ",", "phi_", ",", "startpitch_", 
+    ",", "endpitch_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"func", "[", 
+    RowBox[{"x", ",", "startpitch", ",", "endpitch"}], "]"}], "+", 
+   RowBox[{
+    RowBox[{"Sin", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", "Pi"}], ")"}], "/", "a"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"x", "-", "starttime"}], ")"}]}], "+", "phi"}], "]"}], "*", 
+    "b"}]}]}]], "Input",
+ CellChangeTimes->{{3.6038078166099253`*^9, 3.603807829731554*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{
+        "fl", ",", "x", ",", "a1", ",", "b1", ",", "0", ",", "startPitchFl", 
+         ",", " ", "endPitchFl"}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"f", "[", 
+        RowBox[{
+        "bcl", ",", "x", ",", "a2", ",", "b2", ",", "Pi", ",", 
+         "startPitchBcl", ",", "endPitchBcl"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"f", "[", 
+        RowBox[{
+        "vla", ",", "x", ",", "a3", ",", "b3", ",", "0", ",", "startPitchVla",
+          ",", "endPitchVla"}], "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "starttime", ",", "endtime"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "endtime"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ymin", ",", "ymax"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a1", ",", "90"}], "}"}], ",", "0", ",", "600"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a2", ",", "180"}], "}"}], ",", "0", ",", "600"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a3", ",", "60"}], "}"}], ",", "0", ",", "600"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b1", ",", "2"}], "}"}], ",", "0", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b2", ",", "2"}], "}"}], ",", "0", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b3", ",", "2"}], "}"}], ",", "0", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"startPitchFl", ",", " ", "startPitchFl"}], "}"}], ",", "0", 
+     ",", "120"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"startPitchBcl", ",", "startPitchBcl"}], "}"}], ",", "0", ",", 
+     "120"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"startPitchVla", ",", "startPitchVla"}], "}"}], ",", "0", ",", 
+     "120"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"endPitchFl", ",", " ", "endPitchFl"}], "}"}], ",", "0", ",", 
+     "120"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"endPitchBcl", ",", "endPitchBcl"}], "}"}], ",", "0", ",", 
+     "120"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"endPitchVla", ",", "endPitchVla"}], "}"}], ",", "0", ",", 
+     "120"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ymin", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "10"}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ymax", ",", "84"}], "}"}], ",", "10", ",", "84"}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6036540752367897`*^9, 3.603654136530702*^9}, {
+   3.603654437854794*^9, 3.603654440982987*^9}, {3.603654476956995*^9, 
+   3.6036544881809072`*^9}, 3.603654677365206*^9, {3.603654763527473*^9, 
+   3.60365476452771*^9}, {3.6036552670737123`*^9, 3.6036552675913677`*^9}, {
+   3.603655334672339*^9, 3.603655339471438*^9}, {3.603655429238296*^9, 
+   3.603655430997705*^9}, {3.603655948054783*^9, 3.603656134468156*^9}, {
+   3.603656221043573*^9, 3.603656230514226*^9}, 3.603656264678763*^9, {
+   3.6036571060366096`*^9, 3.603657177376514*^9}, {3.603657217234517*^9, 
+   3.603657228634262*^9}, {3.603657271282937*^9, 3.6036572986483593`*^9}, {
+   3.6036574021523943`*^9, 3.60365749557524*^9}, {3.603657603956853*^9, 
+   3.6036576907072287`*^9}, {3.60365774314001*^9, 3.603657763017932*^9}, {
+   3.603662654690179*^9, 3.6036626631956587`*^9}, {3.6036627016013517`*^9, 
+   3.603662716192417*^9}, 3.603666121001998*^9, {3.603667968108253*^9, 
+   3.603667985379911*^9}, {3.603668047574005*^9, 3.6036680532188797`*^9}, {
+   3.603807440846201*^9, 3.603807441977152*^9}, {3.603807839139262*^9, 
+   3.6038079756793537`*^9}, {3.60380803014357*^9, 3.603808030612836*^9}, {
+   3.603808068848468*^9, 3.6038081026003036`*^9}, {3.603808158935248*^9, 
+   3.603808159510282*^9}, {3.603808238078367*^9, 3.6038082385892982`*^9}, {
+   3.6038085825044537`*^9, 3.603808621361376*^9}, {3.6038087487112494`*^9, 
+   3.6038088539013844`*^9}, {3.603809204863419*^9, 3.603809399682144*^9}, {
+   3.603903069405518*^9, 3.603903087531438*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a1$$ = 90, $CellContext`a2$$ = 
+    180, $CellContext`a3$$ = 60, $CellContext`b1$$ = 2, $CellContext`b2$$ = 
+    2, $CellContext`b3$$ = 2, $CellContext`endPitchBcl$$ = 
+    66., $CellContext`endPitchFl$$ = 67., $CellContext`endPitchVla$$ = 
+    66.68825906469125, $CellContext`startPitchBcl$$ = 
+    48., $CellContext`startPitchFl$$ = 60.5, $CellContext`startPitchVla$$ = 
+    60.86313713864835, $CellContext`ymax$$ = 84, $CellContext`ymin$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a1$$], 90}, 0, 600}, {{
+       Hold[$CellContext`a2$$], 180}, 0, 600}, {{
+       Hold[$CellContext`a3$$], 60}, 0, 600}, {{
+       Hold[$CellContext`b1$$], 2}, 0, 2}, {{
+       Hold[$CellContext`b2$$], 2}, 0, 2}, {{
+       Hold[$CellContext`b3$$], 2}, 0, 2}, {{
+       Hold[$CellContext`startPitchFl$$], 60.5}, 0, 120}, {{
+       Hold[$CellContext`startPitchBcl$$], 48.}, 0, 120}, {{
+       Hold[$CellContext`startPitchVla$$], 60.86313713864835}, 0, 120}, {{
+       Hold[$CellContext`endPitchFl$$], 67.}, 0, 120}, {{
+       Hold[$CellContext`endPitchBcl$$], 66.}, 0, 120}, {{
+       Hold[$CellContext`endPitchVla$$], 66.68825906469125}, 0, 120}, {{
+       Hold[$CellContext`ymin$$], 0}, -10, 0}, {{
+       Hold[$CellContext`ymax$$], 84}, 10, 84}}, Typeset`size$$ = {
+    576., {178., 183.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`a1$132962$$ = 
+    0, $CellContext`a2$132963$$ = 0, $CellContext`a3$132964$$ = 
+    0, $CellContext`b1$132965$$ = 0, $CellContext`b2$132966$$ = 
+    0, $CellContext`b3$132967$$ = 0, $CellContext`startPitchFl$132968$$ = 
+    0, $CellContext`startPitchBcl$132969$$ = 
+    0, $CellContext`startPitchVla$132970$$ = 
+    0, $CellContext`endPitchFl$132971$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a1$$ = 90, $CellContext`a2$$ = 
+        180, $CellContext`a3$$ = 60, $CellContext`b1$$ = 2, $CellContext`b2$$ = 
+        2, $CellContext`b3$$ = 2, $CellContext`endPitchBcl$$ = 
+        66., $CellContext`endPitchFl$$ = 67., $CellContext`endPitchVla$$ = 
+        66.68825906469125, $CellContext`startPitchBcl$$ = 
+        48., $CellContext`startPitchFl$$ = 60.5, $CellContext`startPitchVla$$ = 
+        60.86313713864835, $CellContext`ymax$$ = 84, $CellContext`ymin$$ = 0},
+       "ControllerVariables" :> {
+        Hold[$CellContext`a1$$, $CellContext`a1$132962$$, 0], 
+        Hold[$CellContext`a2$$, $CellContext`a2$132963$$, 0], 
+        Hold[$CellContext`a3$$, $CellContext`a3$132964$$, 0], 
+        Hold[$CellContext`b1$$, $CellContext`b1$132965$$, 0], 
+        Hold[$CellContext`b2$$, $CellContext`b2$132966$$, 0], 
+        Hold[$CellContext`b3$$, $CellContext`b3$132967$$, 0], 
+        Hold[$CellContext`startPitchFl$$, $CellContext`startPitchFl$132968$$, 
+         0], 
+        Hold[$CellContext`startPitchBcl$$, \
+$CellContext`startPitchBcl$132969$$, 0], 
+        Hold[$CellContext`startPitchVla$$, \
+$CellContext`startPitchVla$132970$$, 0], 
+        Hold[$CellContext`endPitchFl$$, $CellContext`endPitchFl$132971$$, 0]},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`f[$CellContext`fl, $CellContext`x, $CellContext`a1$$, \
+$CellContext`b1$$, 0, $CellContext`startPitchFl$$, $CellContext`endPitchFl$$], 
+         $CellContext`f[$CellContext`bcl, $CellContext`x, $CellContext`a2$$, \
+$CellContext`b2$$, 
+          Pi, $CellContext`startPitchBcl$$, $CellContext`endPitchBcl$$], 
+         $CellContext`f[$CellContext`vla, $CellContext`x, $CellContext`a3$$, \
+$CellContext`b3$$, 
+          0, $CellContext`startPitchVla$$, $CellContext`endPitchVla$$]}, \
+{$CellContext`x, $CellContext`starttime, $CellContext`endtime}, 
+        PlotRange -> {{
+          0, $CellContext`endtime}, {$CellContext`ymin$$, \
+$CellContext`ymax$$}}, ImageSize -> Large], 
+      "Specifications" :> {{{$CellContext`a1$$, 90}, 0, 
+         600}, {{$CellContext`a2$$, 180}, 0, 600}, {{$CellContext`a3$$, 60}, 
+         0, 600}, {{$CellContext`b1$$, 2}, 0, 2}, {{$CellContext`b2$$, 2}, 0, 
+         2}, {{$CellContext`b3$$, 2}, 0, 
+         2}, {{$CellContext`startPitchFl$$, 60.5}, 0, 
+         120}, {{$CellContext`startPitchBcl$$, 48.}, 0, 
+         120}, {{$CellContext`startPitchVla$$, 60.86313713864835}, 0, 
+         120}, {{$CellContext`endPitchFl$$, 67.}, 0, 
+         120}, {{$CellContext`endPitchBcl$$, 66.}, 0, 
+         120}, {{$CellContext`endPitchVla$$, 66.68825906469125}, 0, 
+         120}, {{$CellContext`ymin$$, 0}, -10, 0}, {{$CellContext`ymax$$, 84},
+          10, 84}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{895., {210., 216.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.603808937034298*^9, {3.603809279616447*^9, 3.603809335769825*^9}, {
+   3.603809384213213*^9, 3.603809400496031*^9}, 3.603903098219551*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", " ", "-", " ", "starttime"}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"endtime", "-", "starttime"}], ")"}]}], ")"}], ")"}], "*", 
+     RowBox[{"(", 
+      RowBox[{"2.25", "-", ".75"}], ")"}]}], "+", ".75"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "endtime"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.603903762760581*^9, 3.603903764472342*^9}, {
+  3.6039038030851707`*^9, 3.6039038360446463`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwV0Hs803scx/H9OI+HqcNZO+RyRE70cELoohb1/aDSdOa4hEMsu7nlR7qo
+022mxKk4RI6DHGkPkZOpcCjhMZ2kU5nQ1jpxksTItsxmU3acP96P13/PP972
+zNQQjgGBQKAt7v+qh3oeOFwY2Mbn9TsTCCI0UGH5k4/kNrI3aZF/uUSEwLyX
+aSkRooqS8jtWZiKUHnRDbCh5jsoEHK/1TiK0bNriklY8ggpeawLigkRouC0w
+VSX+iE5TbJKeVIrQTgfZa6XYAKKU7JoSnz6kFW+6rBCTgcRQO3iceY66/K7z
++6pWQXj4uPNJ70FkM9w6xnRxhS7uSnFBtxiZJe+7YeS3Hgqdjqre7JCiSx47
+7wWGbQbv9+V23+v+QS9L3DuVpK1gIiXKMzKG0QU+t9fAygf2Ku3H4m3fIIui
+tz8XXvEDZtOzXJf0EZS9h7rtuXoHnCisyH7R/BYdolzd15O5CzI/heXkkt+h
+7XLd8ZS3AVDOdX/1XcQY4nkHM6w30yDe1zqedfk92lL/W+Ppjh/ALn9SWzs9
+jpLnlBmPTIJhUjM8NOguQ1pn0pBrWAhck917bJo3ibzr/qgsLg4FkxXX5aOj
+U0hJDogNF+6B84lNcZUO02j0Ymz4QaNwmIG60QSuHFHlR6nvPCNgsxUz6gJD
+gaZYxEON3B8Bjxj5a5ykXPzTwiBbGAknNsqemt1XIvLT1XkN8ii4VGnIvRPz
+EdnkCII8PaNhZV/+HcnSGVTiTCF9HR8DLXluBQfqZ9Bja5+NMwV0cJoKWyqm
+qdAWG2G+24t9YPqVgvhAp0KmhlWHGZmxsNBeJlhVPotseXbekasZwN5w76Xx
+bjUydoxuDulmAJ/KrGxXq9HarVaCozFM+DBpTRor1qCDQ+SuAAILbob6GxZt
+n0PymYth1BIWpO/K+r1xbA75uz0spbqywfJ1gORalha1z3jNa56xwWPT2SKr
+dTqU4rJO2sfhQKhtrxbr16Gt0+yBSOM4mHqcO3KAN492OFjSTKriIO8L+uEQ
+h0/IKeP8MeGmeCAONVUZPPiE1nAoHY7SeNCd5O2hpH1GnPaEs41pCaCqoQtG
+yAuoo3KArTRPhLhSQS5ZuIBUNXqN25+J0OCcQ1yWokcsxzrjUloSGDhSlvsY
+EUC5ptDztiIJ3i8fn/CmE6CFP/9mNmc/BPfakQ8KCBC1fRV42SZDTURZjqme
+AN/g2a1rO5OhVSiClDAMzJck36JF4BCkyqMZVWPA9zt1XBGJQ/szX/fU6xis
+O5XnVxiNg0utmiyuwSBQ0TAoYeBApNMl1XUYnHsxq2Ul49DR7craeQuDuSqu
+73EeDm5lT45ltWEg9Srsr67DwdR3Cd+wH4OEI/xyaj0OJ23az+0fwEBd38SZ
+asBBpk5L7B/EgPytROPRjMPDupdrr0kw2E1cYXO/E4fT5rWtvkMYtA1Us/sH
+cfgw7t/Lm8AgwLTFNV2Cw96u+VsTMgwk/j1qy1c49FwRFAVPYaC6O5lD/xcH
+fohFlL0cA9er7jcnZDhEt42NdqoWPalP+sUPOPxdXNrtpF70zEKRmwIHSlrg
+jXwNBnHZR/oOz+Jgtro5NVa36HWeK7WYwyGTkBTyaB6DTN2vrLs6HBTSFRvd
+P2NA2lDrEvMZB3pTn0XJAgYV+N1ZvR6HJ79k6fR6DP4DflZPRw==
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0.30000000000000004`},
+  Method->{},
+  PlotRange->{{0, 240.}, {0.25000004081632654`, 2.2499999591836737`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{3.603903837298169*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"line", "[", 
+   RowBox[{"x_", ",", "numperiods_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x", " ", "-", " ", "starttime"}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"endtime", "-", "starttime"}], ")"}]}], ")"}], ")"}], "*", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{".75", "+", "numperiods"}], ")"}], "-", ".75"}], ")"}]}], "+", 
+   ".75"}]}]], "Input",
+ CellChangeTimes->{{3.6039039618061523`*^9, 3.603903977917121*^9}, {
+  3.603904013889421*^9, 3.6039040549214783`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"line", "[", 
+      RowBox[{"x", ",", "2.5"}], "]"}], ",", 
+     RowBox[{"RandomVariate", "[", 
+      RowBox[{"BetaDistribution", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sin", "[", 
+               RowBox[{
+                RowBox[{"line", "[", 
+                 RowBox[{"x", ",", "2.5"}], "]"}], "*", "2", "Pi"}], "]"}], 
+              "*", ".5"}], ")"}], "+", ".5"}], ")"}], "*", "18"}], "+", "2"}],
+         ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sin", "[", 
+               RowBox[{
+                RowBox[{"line", "[", 
+                 RowBox[{"x", ",", "2.5"}], "]"}], "*", "2", "Pi"}], "]"}], 
+              "*", 
+              RowBox[{"-", ".5"}]}], ")"}], "+", ".5"}], ")"}], "*", "18"}], 
+         "+", "2"}]}], "]"}], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "starttime", ",", "endtime"}], "}"}]}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.6039040714038267`*^9, 3.6039040774189873`*^9}, {
+  3.603904277980833*^9, 3.603904334707123*^9}, {3.6039044431061563`*^9, 
+  3.603904445124433*^9}, {3.603904476682157*^9, 3.603904496576613*^9}, {
+  3.603904573568115*^9, 3.6039047091823473`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`x$$ = 118.4, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`x$$], 60., 240.}}, Typeset`size$$ = {
+    146., {2.375, 9.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`x$136415$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`x$$ = 60.}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`x$$, $CellContext`x$136415$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> {
+        $CellContext`line[$CellContext`x$$, 2.5], 
+        RandomVariate[
+         BetaDistribution[(
+            Sin[$CellContext`line[$CellContext`x$$, 2.5] 2 Pi] 0.5 + 0.5) 18 + 
+          2, (Sin[$CellContext`line[$CellContext`x$$, 2.5] 2 Pi] (-0.5) + 0.5)
+             18 + 2]]}, "Specifications" :> {{$CellContext`x$$, 60., 240.}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{248., {49., 54.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.603904336054843*^9, 3.6039044455927963`*^9, {3.603904621682078*^9, 
+   3.603904666367264*^9}, 3.603904709924293*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<Fl\>\"", ",", 
+       RowBox[{"f", "[", 
+        RowBox[{
+        "fl", ",", "x", ",", "90", ",", "2", ",", "0", ",", "startPitchFl", 
+         ",", "endPitchFl"}], "]"}], ",", 
+       RowBox[{"RandomVariate", "[", 
+        RowBox[{"BetaDistribution", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"line", "[", 
+                   RowBox[{"x", ",", "2.5"}], "]"}], "*", "2", "Pi"}], "]"}], 
+                "*", ".5"}], ")"}], "+", ".5"}], ")"}], "*", "18"}], "+", 
+           "2"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"line", "[", 
+                   RowBox[{"x", ",", "2.5"}], "]"}], "*", "2", "Pi"}], "]"}], 
+                "*", 
+                RowBox[{"-", ".5"}]}], ")"}], "+", ".5"}], ")"}], "*", "18"}],
+            "+", "2"}]}], "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<BCl\>\"", ",", 
+       RowBox[{"f", "[", 
+        RowBox[{
+        "bcl", ",", "x", ",", "180", ",", "2", ",", "Pi", ",", 
+         "startPitchBcl", ",", "endPitchBcl"}], "]"}], ",", 
+       RowBox[{"RandomVariate", "[", 
+        RowBox[{"BetaDistribution", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"line", "[", 
+                   RowBox[{"x", ",", "3.5"}], "]"}], "*", "2", "Pi"}], "]"}], 
+                "*", ".5"}], ")"}], "+", ".5"}], ")"}], "*", "18"}], "+", 
+           "2"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"line", "[", 
+                   RowBox[{"x", ",", "2.5"}], "]"}], "*", "2", "Pi"}], "]"}], 
+                "*", 
+                RowBox[{"-", ".5"}]}], ")"}], "+", ".5"}], ")"}], "*", "18"}],
+            "+", "2"}]}], "]"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Vla\>\"", ",", 
+       RowBox[{"f", "[", 
+        RowBox[{
+        "vla", ",", "x", ",", "60", ",", "2", ",", "0", ",", "startPitchVla", 
+         ",", "endPitchVla"}], "]"}], ",", 
+       RowBox[{"RandomVariate", "[", 
+        RowBox[{"BetaDistribution", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"line", "[", 
+                   RowBox[{"x", ",", "4.5"}], "]"}], "*", "2", "Pi"}], "]"}], 
+                "*", ".5"}], ")"}], "+", ".5"}], ")"}], "*", "18"}], "+", 
+           "2"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Sin", "[", 
+                 RowBox[{
+                  RowBox[{"line", "[", 
+                   RowBox[{"x", ",", "2.5"}], "]"}], "*", "2", "Pi"}], "]"}], 
+                "*", 
+                RowBox[{"-", ".5"}]}], ")"}], "+", ".5"}], ")"}], "*", "18"}],
+            "+", "2"}]}], "]"}], "]"}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "starttime", ",", "240"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6036603715457993`*^9, 3.603660404148217*^9}, {
+  3.603662558555266*^9, 3.603662614648727*^9}, {3.603663023530821*^9, 
+  3.603663059995846*^9}, {3.603668481373827*^9, 3.603668495299243*^9}, {
+  3.6039031259865513`*^9, 3.60390316463225*^9}, {3.603903202943709*^9, 
+  3.60390322058119*^9}, {3.603904059289215*^9, 3.603904061456169*^9}, {
+  3.603908173674827*^9, 3.603908196810939*^9}, {3.6039082302846537`*^9, 
+  3.603908338686034*^9}, {3.603909975550309*^9, 3.6039099781257963`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`x$$ = 60., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`x$$], 60., 240}}, Typeset`size$$ = {
+    533., {2.375, 9.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`x$138370$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`x$$ = 60.}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`x$$, $CellContext`x$138370$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> {{"Fl", 
+         $CellContext`f[$CellContext`fl, $CellContext`x$$, 90, 2, 
+          0, $CellContext`startPitchFl, $CellContext`endPitchFl], 
+         RandomVariate[
+          
+          BetaDistribution[(
+             Sin[$CellContext`line[$CellContext`x$$, 2.5] 2 Pi] 0.5 + 0.5) 18 + 
+           2, (Sin[$CellContext`line[$CellContext`x$$, 2.5] 2 Pi] (-0.5) + 
+             0.5) 18 + 2]]}, {"BCl", 
+         $CellContext`f[$CellContext`bcl, $CellContext`x$$, 180, 2, 
+          Pi, $CellContext`startPitchBcl, $CellContext`endPitchBcl], 
+         RandomVariate[
+          
+          BetaDistribution[(
+             Sin[$CellContext`line[$CellContext`x$$, 3.5] 2 Pi] 0.5 + 0.5) 18 + 
+           2, (Sin[$CellContext`line[$CellContext`x$$, 2.5] 2 Pi] (-0.5) + 
+             0.5) 18 + 2]]}, {"Vla", 
+         $CellContext`f[$CellContext`vla, $CellContext`x$$, 60, 2, 
+          0, $CellContext`startPitchVla, $CellContext`endPitchVla], 
+         RandomVariate[
+          
+          BetaDistribution[(
+             Sin[$CellContext`line[$CellContext`x$$, 4.5] 2 Pi] 0.5 + 0.5) 18 + 
+           2, (Sin[$CellContext`line[$CellContext`x$$, 2.5] 2 Pi] (-0.5) + 
+             0.5) 18 + 2]]}}, 
+      "Specifications" :> {{$CellContext`x$$, 60., 240}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{578., {62., 67.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.603660404724164*^9, {3.6036625907653008`*^9, 3.603662615684846*^9}, 
+   3.603663000803259*^9, 3.603663060963997*^9, 3.603668503005254*^9, 
+   3.603903165317747*^9, {3.603903207819706*^9, 3.603903222636958*^9}, 
+   3.603908198244823*^9, {3.6039083091551857`*^9, 3.6039083395499268`*^9}, 
+   3.6039099790080023`*^9}]
+}, Open  ]]
+},
+WindowSize->{1418, 968},
+WindowMargins->{{Automatic, 79}, {Automatic, 0}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 1025, 18, 46, "Input"],
+Cell[1607, 42, 454, 7, 28, "Output"]
+}, Open  ]],
+Cell[2076, 52, 1276, 27, 28, "Input"],
+Cell[3355, 81, 747, 19, 28, "Input"],
+Cell[4105, 102, 1294, 31, 28, "Input"],
+Cell[5402, 135, 627, 19, 28, "Input"],
+Cell[CellGroupData[{
+Cell[6054, 158, 4633, 114, 165, "Input"],
+Cell[10690, 274, 5586, 99, 443, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16313, 378, 604, 17, 28, "Input"],
+Cell[16920, 397, 2169, 42, 236, "Output"]
+}, Open  ]],
+Cell[19104, 442, 631, 19, 28, "Input"],
+Cell[CellGroupData[{
+Cell[19760, 465, 1459, 41, 46, "Input"],
+Cell[21222, 508, 1851, 38, 120, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23110, 551, 4377, 115, 131, "Input"],
+Cell[27490, 668, 2953, 60, 180, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
