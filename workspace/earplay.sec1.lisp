@@ -785,7 +785,21 @@
       		     (reverse acc)
       		     (rec (cons (+ 1 (poisson (funcall mu-fn (reduce #'+ acc)))) acc)))))
 	(rec '(1))))))
-  
+
+(defun make-bar-coll (&optional (insts '("flute" "bass_clarinet" "viola")))
+  (mapcar #'(lambda (inst)
+	      (let ((infile (format nil "~A_beats.txt" inst))
+		    (outfile (format nil "~A_bars.txt" inst)))
+		(let ((dat (deinterleave 3 (read-list-from-file infile))))
+		  (let ((bar-times (car (deinterleave 4 (car dat)))))
+		    (with-open-file (stream outfile :direction :output :if-exists :supersede)
+		      (when stream
+			(labels ((rec (i times)
+				   (unless (null times)
+				     (format stream "~A, ~A;~%" i (car times))
+				     (rec (1+ i) (cdr times)))))
+			  (rec 1 bar-times))))))))
+	  insts))  
 
 (defparameter *sec1-dat* '((FL
   (TIMES 60.0 66.92174189924373 70.79330429287936 72.88306157799052
