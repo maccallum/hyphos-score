@@ -2,31 +2,40 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 6,
-			"minor" : 1,
+			"major" : 7,
+			"minor" : 0,
 			"revision" : 4,
-			"architecture" : "x86"
+			"architecture" : "x86",
+			"modernui" : 1
 		}
 ,
-		"rect" : [ 25.0, 69.0, 1305.0, 741.0 ],
+		"rect" : [ 34.0, 79.0, 1305.0, 741.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
 		"default_fontface" : 0,
 		"default_fontname" : "Arial",
-		"gridonopen" : 0,
+		"gridonopen" : 1,
 		"gridsize" : [ 10.0, 10.0 ],
-		"gridsnaponopen" : 0,
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
 		"statusbarvisible" : 2,
 		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
 		"boxanimatetime" : 200,
-		"imprint" : 0,
 		"enablehscroll" : 1,
 		"enablevscroll" : 1,
 		"devicewidth" : 0.0,
 		"description" : "",
 		"digest" : "",
 		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
 					"fontname" : "Arial",
@@ -36,6 +45,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 219.5, 207.0, 393.0, 20.0 ],
+					"style" : "",
 					"text" : "collect-tw-events computer_constant @/beats @/subdivs /2 /3 /4 /5 /6 /7"
 				}
 
@@ -49,6 +59,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 207.0, 239.0, 341.0, 20.0 ],
+					"style" : "",
 					"text" : "collect-tw-events computer @/beats @/subdivs /2 /3 /4 /5 /6 /7"
 				}
 
@@ -62,6 +73,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 188.5, 271.0, 372.0, 20.0 ],
+					"style" : "",
 					"text" : "collect-tw-events computer_viola @/beats @/subdivs /2 /3 /4 /5 /6 /7"
 				}
 
@@ -75,6 +87,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 170.0, 303.0, 418.0, 20.0 ],
+					"style" : "",
 					"text" : "collect-tw-events computer_bass_clarinet @/beats @/subdivs /2 /3 /4 /5 /6 /7"
 				}
 
@@ -88,7 +101,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 571.5, 296.0, 37.0, 18.0 ],
+					"patching_rect" : [ 571.5, 296.0, 37.0, 20.0 ],
+					"style" : "",
 					"text" : "clear"
 				}
 
@@ -102,7 +116,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 533.0, 342.0, 87.0, 18.0 ],
+					"patching_rect" : [ 533.0, 342.0, 87.0, 20.0 ],
+					"style" : "",
 					"text" : "write points.txt"
 				}
 
@@ -117,6 +132,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 533.0, 251.0, 96.0, 20.0 ],
+					"style" : "",
 					"text" : "route write clear"
 				}
 
@@ -131,6 +147,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "bang", "int" ],
 					"patching_rect" : [ 719.0, 400.0, 103.0, 20.0 ],
+					"style" : "",
 					"text" : "text @precision 6"
 				}
 
@@ -145,6 +162,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "FullPacket" ],
 					"patching_rect" : [ 681.0, 269.0, 63.0, 20.0 ],
+					"style" : "",
 					"text" : "o.atomize"
 				}
 
@@ -155,10 +173,11 @@
 					"fontsize" : 12.0,
 					"id" : "obj-13",
 					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "FullPacket" ],
 					"patching_rect" : [ 681.0, 235.0, 81.0, 20.0 ],
+					"style" : "",
 					"text" : "o.route /point"
 				}
 
@@ -173,6 +192,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 681.0, 303.0, 57.0, 20.0 ],
+					"style" : "",
 					"text" : "zl slice 1"
 				}
 
@@ -187,6 +207,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "FullPacket" ],
 					"patching_rect" : [ 643.0, 174.0, 63.0, 20.0 ],
+					"style" : "",
 					"text" : "o.atomize"
 				}
 
@@ -201,6 +222,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 643.0, 207.0, 57.0, 20.0 ],
+					"style" : "",
 					"text" : "zl slice 1"
 				}
 
@@ -215,6 +237,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 719.0, 371.0, 83.0, 20.0 ],
+					"style" : "",
 					"text" : "pack 0 0 0. 0."
 				}
 
@@ -225,10 +248,11 @@
 					"fontsize" : 12.0,
 					"id" : "obj-7",
 					"maxclass" : "newobj",
-					"numinlets" : 5,
+					"numinlets" : 1,
 					"numoutlets" : 5,
 					"outlettype" : [ "", "", "", "", "FullPacket" ],
 					"patching_rect" : [ 719.0, 336.0, 235.0, 20.0 ],
+					"style" : "",
 					"text" : "o.route /function /point /time /tempo/arrival"
 				}
 
@@ -242,6 +266,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 151.5, 335.0, 370.0, 20.0 ],
+					"style" : "",
 					"text" : "collect-tw-events computer_flute @/beats @/subdivs /2 /3 /4 /5 /6 /7"
 				}
 
@@ -255,6 +280,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 131.0, 364.0, 316.0, 20.0 ],
+					"style" : "",
 					"text" : "collect-tw-events viola @/beats @/subdivs /2 /3 /4 /5 /6 /7"
 				}
 
@@ -268,6 +294,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 110.5, 392.0, 362.0, 20.0 ],
+					"style" : "",
 					"text" : "collect-tw-events bass_clarinet @/beats @/subdivs /2 /3 /4 /5 /6 /7"
 				}
 
@@ -281,6 +308,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 90.0, 420.0, 314.0, 20.0 ],
+					"style" : "",
 					"text" : "collect-tw-events flute @/beats @/subdivs /2 /3 /4 /5 /6 /7"
 				}
 
@@ -291,10 +319,11 @@
 					"fontsize" : 12.0,
 					"id" : "obj-2",
 					"maxclass" : "newobj",
-					"numinlets" : 9,
+					"numinlets" : 1,
 					"numoutlets" : 9,
 					"outlettype" : [ "", "", "", "", "", "", "", "", "FullPacket" ],
 					"patching_rect" : [ 90.0, 138.0, 155.0, 20.0 ],
+					"style" : "",
 					"text" : "o.route /0 /1 /2 /3 /4 /5 /6 /7"
 				}
 
@@ -305,10 +334,11 @@
 					"fontsize" : 12.0,
 					"id" : "obj-178",
 					"maxclass" : "newobj",
-					"numinlets" : 3,
+					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "FullPacket" ],
 					"patching_rect" : [ 90.0, 110.0, 133.0, 20.0 ],
+					"style" : "",
 					"text" : "o.route /function /dump"
 				}
 
@@ -321,7 +351,8 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 90.0, 50.0, 25.0, 25.0 ]
+					"patching_rect" : [ 90.0, 50.0, 25.0, 25.0 ],
+					"style" : ""
 				}
 
 			}
@@ -333,7 +364,8 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 240.0, 60.0, 25.0, 25.0 ]
+					"patching_rect" : [ 240.0, 60.0, 25.0, 25.0 ],
+					"style" : ""
 				}
 
 			}
@@ -647,15 +679,13 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "collect-tw-events.maxpat",
-				"bootpath" : "/Users/john/jmac/mmj/patches/timewarp",
-				"patcherrelativepath" : "../../../mmj/patches/timewarp",
+				"bootpath" : "~/jmac/mmj/patches/timewarp",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grab-time-tempo-phase.maxpat",
-				"bootpath" : "/Users/john/jmac/mmj/patches/timewarp",
-				"patcherrelativepath" : "../../../mmj/patches/timewarp",
+				"bootpath" : "~/jmac/mmj/patches/timewarp",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -671,7 +701,8 @@
 				"name" : "o.atomize.mxo",
 				"type" : "iLaX"
 			}
- ]
+ ],
+		"embedsnapshot" : 0
 	}
 
 }
